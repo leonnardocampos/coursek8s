@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: coursek8s
+  name: client-service
+spec:
+  type: NodePort
+  selector:
+    name: node-app-web
+  ports:
+  - port: 8081
+    targetPort: 8081
+    # By default and for convenience, 
+    # the Kubernetes control plane will 
+    # allocate a port from a range 
+    # (default: 30000-32767)
+    nodePort: 31518
