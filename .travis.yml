@@ -20,6 +20,7 @@ before_install:
   - gcloud container clusters get-credentials coursek8s-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin 
 
+language: generic
 deploy:
   provider: script
   script: bash ./deploy.sh
