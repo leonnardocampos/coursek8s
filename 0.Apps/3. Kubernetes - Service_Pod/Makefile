@@ -42,7 +42,17 @@ port-forward:
 
 # curl https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml > kubernetes-dashboard.yaml
 # kubectl apply -f kubernetes-dashboard.yaml
+#http://localhost:8001/api/v1/namespaces/coursek8s/services/client-service:/proxy/
 proxy-port-forward:
 	kubectl apply 
-#http://localhost:8001/api/v1/namespaces/coursek8s/services/client-service:/proxy/
 
+####################
+##### GCP  ########
+####################
+
+travis:
+	sudo gem install travis
+
+travis-run:
+	travis login --github-token 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 --com
+	travis encrypt-file coursek8s-service-account.json -r leonnardocampos/coursek8s --com
