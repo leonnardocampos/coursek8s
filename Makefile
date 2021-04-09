@@ -50,9 +50,14 @@ proxy-port-forward:
 ##### GCP  ########
 ####################
 
+gcp-context:
+	gcloud init
+	gcloud container clusters get-credentials coursek8s-cluster
+
 travis:
 	sudo gem install travis
 
 travis-run:
 	travis login --github-token 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 --com
 	travis encrypt-file coursek8s-service-account.json -r leonnardocampos/coursek8s --com
+
