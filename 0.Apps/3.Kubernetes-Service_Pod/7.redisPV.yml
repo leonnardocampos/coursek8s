@@ -1,12 +1,12 @@
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: redis-volume
-spec:
-  storageClassName: hostpath
-  capacity:
-    storage: 20Mi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/tmp/redis"
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   name: redis-volume
+# spec:
+#   storageClassName: hostpath
+#   capacity:
+#     storage: 20Mi
+#   accessModes:
+#     - ReadWriteOnce
+#   hostPath:
+#     path: "/tmp/redis"
