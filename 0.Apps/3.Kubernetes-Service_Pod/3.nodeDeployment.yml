@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: leoenes/nodeapp:secure-20210409-v1
+          image: leoenes/nodeapp:latest
           env:
             - name: REDIS_HOST
               value: redis-service
