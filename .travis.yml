@@ -1,3 +1,7 @@
+# - docker build -t leoenes/nodeapp -f ./0.Apps/2.Docker-nodeAppRedis/Dockerfile ./0.Apps/2.Docker-nodeAppRedis
+# script:
+#     - DO YOUR TESTS HERE
+
 sudo: required
 services:
   - docker
@@ -15,13 +19,9 @@ before_install:
   - gcloud config set compute/zone southamerica-east1-a
   - gcloud container clusters get-credentials coursek8s-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin 
-# - docker build -t leoenes/nodeapp -f ./0.Apps/2.Docker-nodeAppRedis/Dockerfile ./0.Apps/2.Docker-nodeAppRedis
- 
-# script:
-#     - DO YOUR TESTS HERE
 
 deploy:
-    provider: script
-    script: bash ./deploy.sh
-    on:
-      branch: master
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
