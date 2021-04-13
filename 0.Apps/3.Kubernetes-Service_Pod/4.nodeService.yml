@@ -4,7 +4,7 @@ metadata:
   namespace: coursek8s
   name: client-service
 spec:
-  type: NodePort
+  type: ClusterIP #Isn't necessary anymore using nodeport
   selector:
     name: node-app-web
   ports:

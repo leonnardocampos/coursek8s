@@ -44,7 +44,7 @@ port-forward:
 # kubectl apply -f kubernetes-dashboard.yaml
 #http://localhost:8001/api/v1/namespaces/coursek8s/services/client-service:/proxy/
 proxy-port-forward:
-	kubectl apply 
+	kubectl proxy
 
 ####################
 ##### GCP  ########
@@ -63,6 +63,26 @@ travis-run:
 
 helm-ingress:
 	helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-	helm install ingress-nginx ingress-nginx/ingress-nginx
+	helm install ingress-nginx ingress-nginx/ingress-nginx -n coursek8s
+
+
+############################
+##### CERT-MANAGER  ########
+############################
+
+#https://cert-manager.io/docs/installation/kubernetes/#installing-with-helm
+cert-manager:
+	kubectl create namespace cert-manager
+	helm repo add jetstack https://charts.jetstack.io
+	helm repo update
+	helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.3.0
+	helm upgrade cert-manager jetstack/cert-manager --namespace cert-manager --version v1.3.0 --set installCRDs=true
+
+# # # ISSUER
+# https://docs.cert-manager.io/en/latest/tasks/issuers/setup-acme/index.html#creating-a-basic-acme-issuer
+
+# # # CERTIFICATE
+# https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/learn/lecture/11628364#questions/8558842/
+
 
 

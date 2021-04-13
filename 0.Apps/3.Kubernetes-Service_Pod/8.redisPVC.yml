@@ -4,7 +4,7 @@ metadata:
   name: redis-pvc
   namespace: coursek8s
 spec:
-  # storageClassName: hostpath
+  storageClassName: standard
   resources:
     requests:
       storage: 10Mi
