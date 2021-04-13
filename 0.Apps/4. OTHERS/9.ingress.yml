@@ -7,17 +7,9 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: 'true'
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
 spec:
-  tls:
-    - hosts:
-        - leonnardocampos.com
-        - www.leonnardocampos.com
-      secretName: leonnardocampos-com
   rules:
-      - host: leonnardocampos.com
-        http: &http_rules
+      - http: &http_rules
           paths:
               - pathType: Prefix
                 path: /?(.*)
@@ -28,5 +20,6 @@ spec:
               #   backend:
               #       serviceName: server-service
               #       servicePort: 5000
-      - host: www.leonnardocampos.com
-        http: *http_rules
+
+
+              
