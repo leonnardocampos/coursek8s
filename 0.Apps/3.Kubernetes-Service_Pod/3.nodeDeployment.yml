@@ -21,11 +21,11 @@ spec:
               value: redis-service
             - name: REDIS_PORT
               value: "6379"
-            - name: REDIS_PASSWORD
+            - name: REDIS_PASSWORD #variable
               valueFrom:
                 secretKeyRef:
-                  name: redispass
-                  key: REDISPASS
+                  name: redispass #secretName
+                  key: REDISPASS #secreKey
           resources:
             limits:
               memory: "128Mi"

@@ -8,7 +8,7 @@ const client = redis.createClient({
   port: keys.redisPort,
   auth_pass: keys.redisPassword
 });
-client.set('visits', 0);
+client.set('visits', 1);
 
 
 app.get('/', (req, res) => {
